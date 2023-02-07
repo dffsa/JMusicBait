@@ -40,7 +40,7 @@ jobs:
       - name: load config files
         run: |
           printf {{secrets.CONFIG}} >> config/config.txt
-          printf {{secrets.SERVERSETTINGS}} >> config/config.txt
+          printf {{secrets.SERVERSETTINGS}} >> config/serversettings.json
       
       # Build and push Docker image
       # https://github.com/docker/build-push-action
