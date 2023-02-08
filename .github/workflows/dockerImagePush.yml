@@ -15,9 +15,6 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
-      - name: image tag name
-        run: |
-          echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
       - uses: 'actions/checkout@v3'
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
@@ -51,4 +48,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_NAME }}
+          tags: us-central1-docker.pkg.dev/mks02id/docker/jmusicbait
