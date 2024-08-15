@@ -49,3 +49,13 @@ jobs:
           context: .
           push: true
           tags: us-central1-docker.pkg.dev/mks02id/docker/jmusicbait
+      
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: mks02id
+          
+      - name: Restart Google Cloud Compute Instance
+        run: |
+            gcloud config set project mks02id
+            gcloud compute instances reset instance-1 --zone=us-central1-a
