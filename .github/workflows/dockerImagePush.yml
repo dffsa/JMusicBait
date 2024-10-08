@@ -54,10 +54,10 @@ jobs:
           sudo apt-get install xmlstarlet
           ls -la
           chmod 666 pom.xml
-          xmlstarlet ed -u "//_:project/dependencies/dependency[2]/groupId" -v "com.github.Nagami-Yukki" pom.xml > pom1.xml
-          xmlstarlet ed -u "//_:project/dependencies/dependency[2]/artifactId" -v "JDA-Utilities" pom.xml > pom2.xml
-          xmlstarlet ed -u "//_:project/dependencies/dependency[2]/version" -v "1.0" pom.xml > pom3.xml
-          xmlstarlet ed -d "//_:project/dependencies/dependency[2]/type" pom.xml > pom4.xml
+          xmlstarlet ed -N mvn="http://maven.apache.org/POM/4.0.0" -u "/project/dependencies/dependency[2]/groupId" -v "com.github.Nagami-Yukki" pom.xml > pom1.xml
+          xmlstarlet ed -N mvn="http://maven.apache.org/POM/4.0.0" -u "/project/dependencies/dependency[2]/artifactId" -v "JDA-Utilities" pom.xml > pom2.xml
+          xmlstarlet ed -N mvn="http://maven.apache.org/POM/4.0.0" -u "/project/dependencies/dependency[2]/version" -v "1.0" pom.xml > pom3.xml
+          xmlstarlet ed -N mvn="http://maven.apache.org/POM/4.0.0" -d "/project/dependencies/dependency[2]/type" pom.xml > pom4.xml
           cat pom1.xml
           cat pom2.xml
           cat pom3.xml
