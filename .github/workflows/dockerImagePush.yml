@@ -39,21 +39,12 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      # Download PR
-      - name: download pr zip file from repo
+      - name: build ninja jar
         run: |
           curl -L -o pr.zip https://github.com/jagrosh/MusicBot/archive/refs/heads/yt-oauth2.zip
-
-      # Extract the ZIP file
-      - name: Unzip the downloaded file
-        run: unzip pr.zip -d ./pr
-
-      - name: build jar
-        run: |
+          unzip pr.zip -d ./pr
           cd pr/MusicBot-yt-oauth2
           sudo apt-get install xmlstarlet
-          ls -la
-          chmod 666 pom.xml
           xmlstarlet edit \
             -u "/_:project/_:dependencies/_:dependency[2]/_:groupId" -v "com.github.Nagami-Yukki" \
             -u "/_:project/_:dependencies/_:dependency[2]/_:artifactId" -v "JDA-Utilities" \
@@ -69,7 +60,7 @@ jobs:
           mkdir config
           printf "${{secrets.CONFIG}}" > config/config.txt
           printf "${{secrets.SERVERSETTINGS}}" > config/serversettings.json
-          echo "youtubeoauth2=true" > config/config.txt
+          echo "youtubeoauth2=true" >> config/config.txt
 
       # Build and push Docker image
       # https://github.com/docker/build-push-action
