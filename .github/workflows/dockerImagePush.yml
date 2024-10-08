@@ -51,7 +51,7 @@ jobs:
       - name: build jar
         run: |
           cd pr/MusicBot-yt-oauth2
-          mvn package
+          mvn package -ntp -U
           ls -la
           mv target/JMusicBot.jar ../../JMusicBot.jar
       
