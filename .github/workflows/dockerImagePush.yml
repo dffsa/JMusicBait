@@ -52,7 +52,7 @@ jobs:
             -d "/_:project/_:dependencies/_:dependency[2]/_:type" \
             pom.xml > ninja_pom.xml
           mvn package -ntp -U -f ninja_pom.xml
-          mv target/JMusicBot-Snapshot.jar ../../JMusicBot.jar
+          mv target/JMusicBot-Snapshot-All.jar ../../JMusicBot.jar
       
       # Load server configuration files secrets 
       - name: load config files
