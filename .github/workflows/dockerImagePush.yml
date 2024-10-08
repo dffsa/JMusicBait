@@ -54,9 +54,9 @@ jobs:
           sudo apt-get install xmlstarlet
           ls -la
           xmlstarlet ed \
-            -u "/project/dependencies/dependency[2]/groupId" -v com.github.Nagami-Yukki \
-            -u "/project/dependencies/dependency[2]/artifactId" -v JDA-Utilities \
-            -u "/project/dependencies/dependency[2]/version" -v 1.0 \
+            -u "/project/dependencies/dependency[2]/groupId" -v "com.github.Nagami-Yukki" \
+            -u "/project/dependencies/dependency[2]/artifactId" -v "JDA-Utilities" \
+            -u "/project/dependencies/dependency[2]/version" -v "1.0" \
             -d "/project/dependencies/dependency[2]/type" \
             pom.xml
             
