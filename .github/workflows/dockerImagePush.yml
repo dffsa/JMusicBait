@@ -54,11 +54,14 @@ jobs:
           sudo apt-get install xmlstarlet
           ls -la
           cat pom.xml
-          xmlstarlet ed -u '//dependency[groupId="com.jagrosh" and artifactId="jda-utilities"]/groupId' -v 'com.github.Nagami-Yukki' \
-            -u '//dependency[groupId="com.jagrosh" and artifactId="jda-utilities"]/artifactId' -v 'JDA-Utilities' \
-            -u '//dependency[groupId="com.jagrosh" and artifactId="jda-utilities"]/version' -v '1.0' \
-            -d '//dependency[groupId="com.jagrosh" and artifactId="jda-utilities"]/type' \
+
+          xmlstarlet ed \
+            -u "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/groupId" -v com.github.Nagami-Yukki \
+            -u "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/artifactId" -v JDA-Utilities \
+            -u "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/version" -v 1.0 \
+            -d "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/type" \
             pom.xml
+            
           mvn package -ntp -U
           ls -la
           mv target/MusicBot/JMusicBot.jar ../../JMusicBot.jar
