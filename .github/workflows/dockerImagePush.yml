@@ -50,10 +50,10 @@ jobs:
 
       - name: build jar
         run: |
-          cd pr
+          cd pr/MusicBot-yt-oauth2
           mvn package
           ls -la
-          mv ./target/JMusicBot.jar ../JMusicBot.jar
+          mv target/JMusicBot.jar ../../JMusicBot.jar
       
       # Load server configuration files secrets 
       - name: load config files
