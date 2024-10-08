@@ -51,6 +51,7 @@ jobs:
       - name: build jar
         run: |
           cd pr/MusicBot-yt-oauth2
+          sed -i 's|<dependency>\n\s*<groupId>com.jagrosh</groupId>\n\s*<artifactId>jda-utilities</artifactId>\n\s*<version>3.0.5</version>\n\s*<type>pom</type>\n</dependency>|<dependency>\n\t<groupId>com.github.Nagami-Yukki</groupId>\n\t<artifactId>JDA-Utilities</artifactId>\n\t<version>1.0</version>\n</dependency>|g' pom.xml
           mvn package -ntp -U
           ls -la
           mv target/JMusicBot.jar ../../JMusicBot.jar
