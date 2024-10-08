@@ -54,10 +54,14 @@ jobs:
           sudo apt-get install xmlstarlet
           ls -la
           chmod 666 pom.xml
-          xmlstarlet ed --inplace -u "/project/dependencies/dependency[2]/groupId" -v "com.github.Nagami-Yukki" pom.xml
-          xmlstarlet ed --inplace -u "/project/dependencies/dependency[2]/artifactId" -v "JDA-Utilities" pom.xml
-          xmlstarlet ed --inplace -u "/project/dependencies/dependency[2]/version" -v "1.0" pom.xml
-          xmlstarlet ed --inplace -d "/project/dependencies/dependency[2]/type" pom.xml
+          xmlstarlet ed -u "/project/dependencies/dependency[2]/groupId" -v "com.github.Nagami-Yukki" pom.xml > pom1.xml
+          xmlstarlet ed -u "/project/dependencies/dependency[2]/artifactId" -v "JDA-Utilities" pom.xml > pom2.xml
+          xmlstarlet ed -u "/project/dependencies/dependency[2]/version" -v "1.0" pom.xml > pom3.xml
+          xmlstarlet ed -d "/project/dependencies/dependency[2]/type" pom.xml > pom4.xml
+          cat pom1.xml
+          cat pom2.xml
+          cat pom3.xml
+          cat pom4.xml
           mvn package -ntp -U
           ls -la
           mv target/MusicBot/JMusicBot.jar ../../JMusicBot.jar
