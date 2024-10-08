@@ -53,13 +53,11 @@ jobs:
           cd pr/MusicBot-yt-oauth2
           sudo apt-get install xmlstarlet
           ls -la
-          cat pom.xml
-
           xmlstarlet ed \
-            -u "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/groupId" -v com.github.Nagami-Yukki \
-            -u "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/artifactId" -v JDA-Utilities \
-            -u "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/version" -v 1.0 \
-            -d "//dependency[groupId=com.jagrosh and artifactId=jda-utilities]/type" \
+            -u "/project/dependencies/dependency[2]/groupId" -v com.github.Nagami-Yukki \
+            -u "/project/dependencies/dependency[2]/artifactId" -v JDA-Utilities \
+            -u "/project/dependencies/dependency[2]/version" -v 1.0 \
+            -d "/project/dependencies/dependency[2]/type" \
             pom.xml
             
           mvn package -ntp -U
