@@ -60,7 +60,6 @@ jobs:
           mkdir config
           printf "${{secrets.CONFIG}}" > config/config.txt
           printf "${{secrets.SERVERSETTINGS}}" > config/serversettings.json
-          echo "youtubeoauth2=true" >> config/config.txt
 
       # Build and push Docker image
       # https://github.com/docker/build-push-action
