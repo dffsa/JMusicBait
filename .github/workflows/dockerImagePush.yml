@@ -43,8 +43,8 @@ jobs:
         run: |
           curl -L -o JMusicBot.jar https://github.com/jagrosh/MusicBot/releases/download/0.4.3/JMusicBot-0.4.3.jar
           pwd
-          ls ../..
-          mv JMusicBot.jar ../../JMusicBot.jar
+          ls .
+          mv ./JMusicBot.jar ../../JMusicBot.jar
       
       # Load server configuration files secrets 
       - name: load config files
