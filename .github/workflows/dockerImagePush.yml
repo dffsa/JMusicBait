@@ -39,20 +39,10 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      # - name: build ninja jar
-      #   run: |
-      #     curl -L -o pr.zip https://github.com/jagrosh/MusicBot/archive/refs/heads/yt-oauth2.zip
-      #     unzip pr.zip -d ./pr
-      #     cd pr/MusicBot-yt-oauth2
-      #     sudo apt-get install xmlstarlet
-      #     xmlstarlet edit \
-      #       -u "/_:project/_:dependencies/_:dependency[2]/_:groupId" -v "com.github.Nagami-Yukki" \
-      #       -u "/_:project/_:dependencies/_:dependency[2]/_:artifactId" -v "JDA-Utilities" \
-      #       -u "/_:project/_:dependencies/_:dependency[2]/_:version" -v "1.0" \
-      #       -d "/_:project/_:dependencies/_:dependency[2]/_:type" \
-      #       pom.xml > ninja_pom.xml
-      #     mvn package -ntp -U -f ninja_pom.xml
-      #     mv target/JMusicBot-Snapshot-All.jar ../../JMusicBot.jar
+      - name: get jar
+        run: |
+          curl -L -o JMusicBot.jar https://github.com/jagrosh/MusicBot/releases/download/0.4.3/JMusicBot-0.4.3.jar
+          mv JMusicBot.jar ../../JMusicBot.jar
       
       # Load server configuration files secrets 
       - name: load config files
